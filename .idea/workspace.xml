@@ -48,7 +48,7 @@
       <workItem from="1584704386696" duration="485000" />
       <workItem from="1584711741428" duration="8681000" />
       <workItem from="1584882861899" duration="30000" />
-      <workItem from="1584885857741" duration="1123000" />
+      <workItem from="1584885857741" duration="5224000" />
     </task>
     <task id="LOCAL-00001" summary="Nice">
       <created>1584725857335</created>
@@ -57,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584725857335</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed square option">
+      <created>1584887170925</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584887170925</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,7 +95,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Nice" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nice" />
+    <MESSAGE value="fixed square option" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed square option" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

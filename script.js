@@ -16,6 +16,7 @@ const calcData = {
     isEqual: false,
 
 
+
     calcActions(event) {
         zeroBlock.style.display = 'none';
 
@@ -25,12 +26,13 @@ const calcData = {
 
         switch (option) {
             case 'number':
-                if (btn.innerText === '.' && !this.input) break;
+                if ((btn.innerText === '.' && !this.input) || (this.input.match(/\./) && btn.innerText === '.') || (btn.innerText === '0' && this.input === '0')) break;
                 if (this.nextOperation || this.isEqual) this.input = '';
                 if (this.isEqual) {
                     this.actionInner = '';
                     this.isEqual = false;
                 }
+
 
                 this.nextOperation = false;
 
@@ -59,6 +61,7 @@ const calcData = {
                 this.nextOperation = true;
 
                 this.actionInner = this.addActionInnerSpaces(this.actionInner, btn);
+                this.zeroDivideCheck();
 
                 break;
             case 'square':
@@ -87,6 +90,10 @@ const calcData = {
                 this.actionInner += inputArea.innerText + btn.innerText;
                 this.input = this.equal(this.actionInner);
 
+                console.log(this.actionInner);
+
+                this.zeroDivideCheck();
+
 
                 this.actionInner = this.addActionInnerSpaces(this.actionInner, btn);
                 break;
@@ -98,7 +105,7 @@ const calcData = {
         else inputArea.style.fontSize = '';
 
         inputArea.innerText = this.addInputComas(this.input);
-        actions.innerText = this.actionInner;
+        actions.innerText = this.actionInner.replace(/(\.0+\s|$)|(?<=\.\d+?)0+(?=\s|$)/gi, ' ');
     },
 
     equal(inner) {
@@ -134,6 +141,10 @@ const calcData = {
             .split('').reverse().join('')
             .replace(/(.*?\.)|(\d{3}(?=\d))/gi, (m, coma, dig) => coma ? coma : dig + ',')
             .split('').reverse().join('');
+    },
+
+    zeroDivideCheck() {
+        if ((/÷\s0/).test(this.actionInner)) this.input = 'Cannot divide by zero';
     },
 };
 
