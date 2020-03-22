@@ -25,6 +25,7 @@ const calcData = {
 
         switch (option) {
             case 'number':
+                if (btn.innerText === '.' && !this.input) break;
                 if (this.nextOperation || this.isEqual) this.input = '';
                 if (this.isEqual) {
                     this.actionInner = '';
@@ -47,7 +48,12 @@ const calcData = {
                 }
                 break;
             case 'option':
-                if (this.isEqual || !this.input) break;
+                if (/*this.isEqual ||*/ !this.input) break;
+
+                if (this.isEqual) {
+                    this.actionInner = '';
+                    this.isEqual = false;
+                }
 
                 this.nextOperation ? this.actionInner : this.actionInner += inputArea.innerText + btn.innerText;
                 this.nextOperation = true;
@@ -56,12 +62,14 @@ const calcData = {
 
                 break;
             case 'square':
+                if (!this.input) break;
                 this.actionInner = `sqr(${this.input})`;
-                this.input = this.equal(`${this.input} * 2`);
+                this.input = this.equal(`${this.input} * ${this.input}`);
 
                 this.isEqual = true;
                 break;
             case 'backspace':
+                if (this.isEqual) break;
                 this.input = this.input
                     .slice(0, this.input.length - 1)
                     .replace(/\.$/, '');
@@ -184,116 +192,4 @@ document.ondragstart = function () {
     return false;
 };
 
-
-/*function calculate(event) {
-    zero.style.display = 'none';
-    const btn = event.target.closest('.btn');
-
-    let strText = inputArea.innerText;
-    if (strText.length + 1 > 17) return;
-    if (event.shiftKey) return;
-
-    if (event.keyCode >= 48 && event.keyCode <= 57) {
-        inputValueChanger(event, strText, btn);
-        return;
-    }
-
-    switch (btn.dataset.opt) {
-        case 'number':
-            inputValueChanger(event, strText, btn);
-            break;
-        case 'option':
-            actionValueChanger(event)
-            break;
-        case 'backspace':
-            inputArea.innerText = strText.slice(0, strText.length - 1);
-            if (!inputArea.innerText.length) zero.style.display = '';
-            break;
-        case 'clear':
-            actions.innerText = '';
-            deleteInner()
-            break;
-        case 'equal':
-            equal(event);
-            break;
-    }
-}
-
-function equal(event) {
-    const target = event.target;
-
-    if (inputArea.innerText.length) {
-        actions.innerText += ' ' + inputArea.innerText + ' ' + ' ' + target.innerText;
-        deleteInner()
-
-    } else {
-        actions.innerText = actions.innerText.slice(0, actions.innerText.length - 1) + target.innerText;
-        deleteInner()
-    }
-
-    let inner = actions.innerText.split(' ');
-    inner.pop();
-
-    for (let i = 0; i < inner.length; i++) {
-        switch (inner[i]) {
-            case '×':
-                inner.splice(i, 1, '*')
-                break;
-            case '÷':
-                inner.splice(i, 1, '/') ;
-                break;
-        }
-    }
-
-    inputArea.innerText = eval(inner.join(''));
-    zero.style.display = 'none'
-    if (inputArea.innerText.length > 10) inputArea.style.fontSize = 30 + 'px';
-
-}
-
-function inputValueChanger(event, strText, btn) {
-    inputArea.innerText += event.key || btn.innerText;
-    inputArea.innerText = inputArea.innerText
-                                    .replace(/\,/gi, '')
-                                    .split('')
-                                    .reverse()
-                                    .join('')
-                                    .replace(/\d{3}(?=\d)/gi, (m) => {
-                                      return m + ','
-                                    })
-                                    .split('')
-                                    .reverse()
-                                    .join('');
-    if (strText.length > 10) inputArea.style.fontSize = 30 + 'px';
-}
-
-
-function actionValueChanger(event) {
-    const target = event.target;
-
-    if (actions.innerText[actions.innerText.length - 1] == '=') actions.innerText = inputArea.innerText + target.innerText;
-
-    if (!actions.innerText.length) {
-        actions.innerText += ' ' + inputArea.innerText + ' ' + ' ' + target.innerText;
-        deleteInner()
-    }
-
-    else {
-        if (inputArea.innerText.length) {
-            actions.innerText += ' ' + inputArea.innerText + ' ' + ' ' + target.innerText;
-            deleteInner()
-
-        } else {
-            actions.innerText = actions.innerText.slice(0, actions.innerText.length - 1) + target.innerText;
-            deleteInner()
-        }
-    }
-}
-
-function deleteInner() {
-    zero.style.display = '';
-    inputArea.innerText = '';
-}
-
-*/
 
