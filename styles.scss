@@ -1,0 +1,132 @@
+* {
+  color: white;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  #calculator {
+    width: 320px;
+    height: 421px;
+    background: rgb(34, 34, 34);
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 1px solid orangered;
+    }
+
+    .header {
+      padding: 0 10px 10px;
+      position: relative;
+
+      .move-place {
+        height: 25px;
+        line-height: 25px;
+        text-align: right;
+        font-size: 10px;
+        position: relative;
+        color: crimson;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: -10px;
+          width: 110%;
+          height: 1px;
+          background: white;
+        }
+      }
+
+      .title {
+        font-weight: bold;
+        margin: 5px 0;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 25%;
+          width: 50%;
+          height: 1px;
+          background: crimson;
+        }
+
+      }
+
+      .actions {
+        text-align: right;
+        font-size: 18px;
+        color: rgb(99, 99, 99);
+        height: 15px;
+      }
+
+      .input-area {
+        width: 100%;
+        border: none;
+        height: 60px;
+        background: rgb(34, 34, 34);
+        font-size: 50px;
+        text-align: right;
+        line-height: 70px;
+        overflow: hidden;
+
+      }
+
+      .zero {
+        position: absolute;
+        color: rgb(131, 131, 131);
+        right: 10px;
+        top: 84px;
+        font-size: 50px;
+      }
+
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2px;
+
+      .btn {
+        height: 53px;
+        background-color: rgb(34, 34, 34);
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          background: rgb(56, 56, 56);
+        }
+      }
+
+      .num {
+        background: rgb(15, 15, 15);
+      }
+
+      .option {
+        background: rgb(24, 24, 24);
+      }
+
+      .equal {
+        background: rgb(81, 92, 104);
+
+        &:hover {
+          background: rgb(69, 91, 110) !important;
+        }
+      }
+
+    }
+  }
+}
+
