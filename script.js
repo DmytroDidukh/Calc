@@ -1,20 +1,24 @@
 'use strict';
 
+
 const inputArea = document.querySelector('.input-area'),
-    // calc = document.querySelector('#calculator'),
-    controlPanel = document.querySelector('.template'),
     actions = document.querySelector('.actions'),
-    zeroBlock = document.querySelector('.zero'),
-    header = document.querySelector('.header');
+
+    movementPlace = document.querySelector('.move-place'),
+    controlPanel = document.querySelector('.template'),
+
+    zeroBlock = document.querySelector('.zero');
+
 
 
 const calcData = {
     input: '',
     actionInner: '',
-    minus: false,
     nextOperation: false,
     isEqual: false,
-
+    preEqual: true,
+    isSquare: false,
+    temporaryInput: '',
 
 
     calcActions(event) {
@@ -26,8 +30,15 @@ const calcData = {
 
         switch (option) {
             case 'number':
-                if ((btn.innerText === '.' && !this.input) || (this.input.match(/\./) && btn.innerText === '.') || (btn.innerText === '0' && this.input === '0')) break;
-                if (this.nextOperation || this.isEqual) this.input = '';
+                if ((btn.innerText === '.' && !this.input) || (this.input.match(/\./) && btn.innerText === '.') || (btn.innerText === '0' && this.input === '0') || (/\d/.test(btn.innerText) && this.input === '0')) break;
+                if (this.nextOperation || this.isEqual) {
+                    this.temporaryInput = this.input;
+                    this.input = '';
+                }
+                if (btn.innerText === '.' && !this.input) {
+                    this.input = this.temporaryInput;
+                    break;
+                }
                 if (this.isEqual) {
                     this.actionInner = '';
                     this.isEqual = false;
@@ -39,18 +50,16 @@ const calcData = {
                 if (this.input.length > 20) break;
                 else this.input += btn.innerText;
 
+                this.nextOperation = false;
+                this.preEqual = false;
+                this.isSquare = false;
+
                 break;
             case 'minus':
-                if (this.minus) {
-                    this.input = this.input.slice(1);
-                    this.minus = false;
-                } else {
-                    this.input = '-' + this.input;
-                    this.minus = true;
-                }
+                this.input = /-/.test(this.input) ? this.input.slice(1) : '-' + this.input;
                 break;
             case 'option':
-                if (/*this.isEqual ||*/ !this.input) break;
+                if (!this.input) break;
 
                 if (this.isEqual) {
                     this.actionInner = '';
@@ -58,18 +67,22 @@ const calcData = {
                 }
 
                 this.nextOperation ? this.actionInner : this.actionInner += inputArea.innerText + btn.innerText;
+
                 this.nextOperation = true;
+                this.preEqual = true;
+                this.isSquare = false;
 
                 this.actionInner = this.addActionInnerSpaces(this.actionInner, btn);
                 this.zeroDivideCheck();
 
                 break;
             case 'square':
-                if (!this.input) break;
+                if (!this.input || this.isSquare) break;
                 this.actionInner = `sqr(${this.input})`;
                 this.input = this.equal(`${this.input} * ${this.input}`);
 
                 this.isEqual = true;
+                this.isSquare = true;
                 break;
             case 'backspace':
                 if (this.isEqual) break;
@@ -83,17 +96,19 @@ const calcData = {
 
                 break;
             case 'equal':
-                if (this.isEqual) break;
+                if (this.isEqual || this.preEqual || !/\D/.test(this.actionInner)) break;
 
+                this.preEqual = true;
                 this.isEqual = true;
-                // edit this shit down here and at a row 52
-                this.actionInner += inputArea.innerText + btn.innerText;
-                this.input = this.equal(this.actionInner);
 
-                console.log(this.actionInner);
+                // edit this shit down here and at a row 70
+                this.actionInner += inputArea.innerText + btn.innerText;
+
+                let temporaryEqual = this.equal(this.actionInner);
+                let isPointInResult = /\./.test(temporaryEqual);
+                this.input = !(isPointInResult && temporaryEqual.match(/\.\d+/)[0].length > 10) ? temporaryEqual : (+temporaryEqual).toFixed(10);
 
                 this.zeroDivideCheck();
-
 
                 this.actionInner = this.addActionInnerSpaces(this.actionInner, btn);
                 break;
@@ -144,12 +159,12 @@ const calcData = {
     },
 
     zeroDivideCheck() {
-        if ((/÷\s0/).test(this.actionInner)) this.input = 'Cannot divide by zero';
+        if ((/÷\s0[^\.]/).test(this.actionInner)) this.input = 'Cannot divide by zero';
     },
 };
 
 
-header.addEventListener('mousedown', moveCalc);
+movementPlace.addEventListener('mousedown', moveCalc);
 controlPanel.addEventListener('click', calcData.calcActions.bind(calcData));
 
 
