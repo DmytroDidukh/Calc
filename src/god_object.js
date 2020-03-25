@@ -1,5 +1,7 @@
 'use strict';
 
+/* тест */
+
 const calcData = {
     input: '',
     actionInner: '',
@@ -78,6 +80,7 @@ const calcData = {
                 this.isEqual = true;
                 this.isSquare = true;
                 break;
+
             case 'backspace':
                 if (this.isEqual) break;
                 this.input = this.input

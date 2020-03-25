@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f6fe9bb-82e7-44b9-97e8-30e519d708b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/god_object.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/movement.js" afterDir="false" />
+    <list default="true" id="0f6fe9bb-82e7-44b9-97e8-30e519d708b4" name="Default Changelist" comment="separating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/god_object.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/god_object.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +19,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/history" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZLDzXrmVp2OqWGUzzrqEba5B30" />
@@ -63,7 +74,9 @@
       <workItem from="1584996669850" duration="42000" />
       <workItem from="1585037035730" duration="801000" />
       <workItem from="1585125653013" duration="15113000" />
-      <workItem from="1585148934493" duration="981000" />
+      <workItem from="1585148934493" duration="1279000" />
+      <workItem from="1585154766502" duration="424000" />
+      <workItem from="1585156500422" duration="721000" />
     </task>
     <task id="LOCAL-00001" summary="Nice">
       <created>1584725857335</created>
@@ -107,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585140781935</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="separating">
+      <created>1585150021945</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585150021945</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +162,8 @@
     <MESSAGE value="fixed divide by zero and deleting endless zero after coma" />
     <MESSAGE value="styles edited, fixed bugs by adding crutches" />
     <MESSAGE value="added SASS" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SASS" />
+    <MESSAGE value="separating" />
+    <option name="LAST_COMMIT_MESSAGE" value="separating" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
