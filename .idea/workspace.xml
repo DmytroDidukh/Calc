@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f6fe9bb-82e7-44b9-97e8-30e519d708b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/god_object.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/movement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css.map" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,6 +63,7 @@
       <workItem from="1584996669850" duration="42000" />
       <workItem from="1585037035730" duration="801000" />
       <workItem from="1585125653013" duration="15113000" />
+      <workItem from="1585148934493" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="Nice">
       <created>1584725857335</created>
