@@ -3,6 +3,8 @@ This is my first project. I have been starting it in Jan 2020 after 2 months of 
 
 Calc-preview.png
 
+![aaaaa](Calc-preview.png "Описание будет тут")
+
 
 {Dmytro Didukh}
 {Calc}
