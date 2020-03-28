@@ -1,7 +1,5 @@
 'use strict';
 
-/* тест */
-
 const calcData = {
     input: '',
     actionInner: '',

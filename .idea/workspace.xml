@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f6fe9bb-82e7-44b9-97e8-30e519d708b4" name="Default Changelist" comment="separating">
+    <list default="true" id="0f6fe9bb-82e7-44b9-97e8-30e519d708b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/god_object.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/god_object.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,7 +77,8 @@
       <workItem from="1585125653013" duration="15113000" />
       <workItem from="1585148934493" duration="1279000" />
       <workItem from="1585154766502" duration="424000" />
-      <workItem from="1585156500422" duration="721000" />
+      <workItem from="1585156500422" duration="1495000" />
+      <workItem from="1585384877541" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="Nice">
       <created>1584725857335</created>
@@ -127,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585150021945</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="separating">
+      <created>1585157571762</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585157571762</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
